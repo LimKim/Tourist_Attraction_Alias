@@ -1,0 +1,334 @@
+/data3/yfyang/anaconda3/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:523: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint8 = np.dtype([("qint8", np.int8, 1)])
+/data3/yfyang/anaconda3/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:524: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint8 = np.dtype([("quint8", np.uint8, 1)])
+/data3/yfyang/anaconda3/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:525: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint16 = np.dtype([("qint16", np.int16, 1)])
+/data3/yfyang/anaconda3/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:526: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint16 = np.dtype([("quint16", np.uint16, 1)])
+/data3/yfyang/anaconda3/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:527: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint32 = np.dtype([("qint32", np.int32, 1)])
+/data3/yfyang/anaconda3/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:532: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  np_resource = np.dtype([("resource", np.ubyte, 1)])
+/data3/yfyang/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+========================================
+B-AE      	0
+B-SE      	1
+I-AE      	2
+I-SE      	3
+O         	4
+========================================
+True      	0
+False     	1
+========================================
+NER_size 5
+Classifier_size 2
+The shape of tokens after loading vocab: (4000, 102)
+The shape of tokens after loading vocab: (500, 102)
+SaveVariable dir has exist
+2020-05-25 14:24:38.952747: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-05-25 14:24:39.237271: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:897] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-05-25 14:24:39.238827: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1405] Found device 0 with properties: 
+name: GeForce GTX 1080 Ti major: 6 minor: 1 memoryClockRate(GHz): 1.582
+pciBusID: 0000:84:00.0
+totalMemory: 10.91GiB freeMemory: 9.88GiB
+2020-05-25 14:24:39.238854: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1484] Adding visible gpu devices: 4
+2020-05-25 14:24:39.691533: I tensorflow/core/common_runtime/gpu/gpu_device.cc:965] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-05-25 14:24:39.691593: I tensorflow/core/common_runtime/gpu/gpu_device.cc:971]      4 
+2020-05-25 14:24:39.691604: I tensorflow/core/common_runtime/gpu/gpu_device.cc:984] 4:   N 
+2020-05-25 14:24:39.692019: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1097] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 9549 MB memory) -> physical GPU (device: 4, name: GeForce GTX 1080 Ti, pci bus id: 0000:84:00.0, compute capability: 6.1)
+========================================
+The shape of token_pad: (?, 102)
+The shape of entity_pad: (?, 102)
+The shape of ner_vec_list: (?, 100, 5)
+The shape of classifier_vec_list: (?, 100, 2)
+The shape of real_chars_list: (?, 100)
+The shape of seq_lens_list: (?,)
+========================================
+Using pretrained ELMo word embedding...
+USING SKIP CONNECTIONS
+USING SKIP CONNECTIONS
+Embedding ELMo input...
+WARNING:tensorflow:From ../ELMo_self_train/bilm/elmo.py:89: calling squeeze (from tensorflow.python.ops.array_ops) with squeeze_dims is deprecated and will be removed in a future version.
+Instructions for updating:
+Use the `axis` argument instead
+========================================
+The shape of word embedding after loading ELMo： (?, 100, 600)
+The shape of entity embedding after loading ELMo： (?, 10, 600)
+========================================
+WARNING:tensorflow:From /data3/yfyang/togit/model_latest/model_fn.py:237: softmax_cross_entropy_with_logits (from tensorflow.python.ops.nn_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+
+Future major versions of TensorFlow will allow gradients to flow
+into the labels input on backprop by default.
+
+See @{tf.nn.softmax_cross_entropy_with_logits_v2}.
+
+/data3/yfyang/anaconda3/lib/python3.6/site-packages/tensorflow/python/ops/gradients_impl.py:108: UserWarning: Converting sparse IndexedSlices to a dense Tensor of unknown shape. This may consume a large amount of memory.
+  "Converting sparse IndexedSlices to a dense Tensor of unknown shape. "
+initializing...
+========================================
+Nums of TrainData: 4000
+Batch Size: 8
+Steps per epoch: 500
+========================================
+steps: 50     	loss:24.3113
+steps: 100    	loss:33.5676
+steps: 150    	loss:18.1522
+steps: 200    	loss:9.2344
+steps: 250    	loss:10.7167
+steps: 300    	loss:15.4445
+steps: 350    	loss:8.2718
+steps: 400    	loss:8.7735
+steps: 450    	loss:10.0308
+steps: 500    	loss:11.3085
+========================================
+evaluating in dev...
+TP:262	FP:134	FN:143
+step:500    	loss:10.4068
+Precision:0.6616  Recall:0.6469  F1:0.6542
+After manual processed..
+TP:254	FP:88	FN:151
+Precision:0.7427  Recall:0.6272  F1:0.6801
+save to path: saveVariable/JointModel/500.ckpt
+========================================
+steps: 550    	loss:8.3093
+steps: 600    	loss:7.8190
+steps: 650    	loss:6.8185
+steps: 700    	loss:8.4439
+steps: 750    	loss:4.9458
+steps: 800    	loss:2.4389
+steps: 850    	loss:6.9187
+steps: 900    	loss:3.3980
+steps: 950    	loss:9.0167
+steps: 1000   	loss:3.6967
+========================================
+evaluating in dev...
+TP:251	FP:105	FN:154
+step:1000   	loss:6.9237
+Precision:0.7051  Recall:0.6198  F1:0.6597
+After manual processed..
+TP:242	FP:74	FN:163
+Precision:0.7658  Recall:0.5975  F1:0.6713
+save to path: saveVariable/JointModel/1000.ckpt
+========================================
+steps: 1050   	loss:3.9040
+steps: 1100   	loss:1.2076
+steps: 1150   	loss:4.3639
+steps: 1200   	loss:1.8650
+steps: 1250   	loss:4.0067
+steps: 1300   	loss:4.1966
+steps: 1350   	loss:2.9962
+steps: 1400   	loss:1.8166
+steps: 1450   	loss:6.1535
+steps: 1500   	loss:6.6535
+========================================
+evaluating in dev...
+TP:222	FP:73	FN:183
+step:1500   	loss:6.4554
+Precision:0.7525  Recall:0.5481  F1:0.6343
+After manual processed..
+TP:211	FP:51	FN:194
+Precision:0.8053  Recall:0.5210  F1:0.6327
+save to path: saveVariable/JointModel/1500.ckpt
+========================================
+steps: 1550   	loss:1.5384
+steps: 1600   	loss:1.6604
+steps: 1650   	loss:0.8919
+steps: 1700   	loss:0.6981
+steps: 1750   	loss:0.7149
+steps: 1800   	loss:3.1949
+steps: 1850   	loss:2.0289
+steps: 1900   	loss:3.1067
+steps: 1950   	loss:1.4730
+steps: 2000   	loss:0.8533
+========================================
+evaluating in dev...
+TP:232	FP:64	FN:173
+step:2000   	loss:7.5509
+Precision:0.7838  Recall:0.5728  F1:0.6619
+After manual processed..
+TP:222	FP:49	FN:183
+Precision:0.8192  Recall:0.5481  F1:0.6568
+========================================
+steps: 2050   	loss:1.7574
+steps: 2100   	loss:0.5934
+steps: 2150   	loss:0.1545
+steps: 2200   	loss:0.3103
+steps: 2250   	loss:0.2487
+steps: 2300   	loss:1.1378
+steps: 2350   	loss:1.2178
+steps: 2400   	loss:0.1207
+steps: 2450   	loss:0.4797
+steps: 2500   	loss:2.1389
+========================================
+evaluating in dev...
+TP:242	FP:69	FN:163
+step:2500   	loss:9.0160
+Precision:0.7781  Recall:0.5975  F1:0.6760
+After manual processed..
+TP:232	FP:51	FN:173
+Precision:0.8198  Recall:0.5728  F1:0.6744
+========================================
+steps: 2550   	loss:0.0702
+steps: 2600   	loss:0.0793
+steps: 2650   	loss:0.4519
+steps: 2700   	loss:0.0616
+steps: 2750   	loss:1.1642
+steps: 2800   	loss:0.3651
+steps: 2850   	loss:0.8495
+steps: 2900   	loss:0.1176
+steps: 2950   	loss:2.9111
+steps: 3000   	loss:0.7994
+========================================
+evaluating in dev...
+TP:251	FP:72	FN:154
+step:3000   	loss:9.5104
+Precision:0.7771  Recall:0.6198  F1:0.6896
+After manual processed..
+TP:242	FP:57	FN:163
+Precision:0.8094  Recall:0.5975  F1:0.6875
+save to path: saveVariable/JointModel/3000.ckpt
+========================================
+steps: 3050   	loss:0.0537
+steps: 3100   	loss:0.0338
+steps: 3150   	loss:0.2314
+steps: 3200   	loss:0.0859
+steps: 3250   	loss:0.0246
+steps: 3300   	loss:0.0342
+steps: 3350   	loss:0.0709
+steps: 3400   	loss:0.1345
+steps: 3450   	loss:0.0244
+steps: 3500   	loss:0.1211
+========================================
+evaluating in dev...
+TP:239	FP:72	FN:166
+step:3500   	loss:11.0552
+Precision:0.7685  Recall:0.5901  F1:0.6676
+After manual processed..
+TP:232	FP:56	FN:173
+Precision:0.8056  Recall:0.5728  F1:0.6696
+========================================
+steps: 3550   	loss:0.0129
+steps: 3600   	loss:0.0450
+steps: 3650   	loss:0.0194
+steps: 3700   	loss:0.3429
+steps: 3750   	loss:0.0567
+steps: 3800   	loss:0.1909
+steps: 3850   	loss:0.0168
+steps: 3900   	loss:0.1392
+steps: 3950   	loss:0.0114
+steps: 4000   	loss:0.0122
+========================================
+evaluating in dev...
+TP:246	FP:67	FN:159
+step:4000   	loss:13.2204
+Precision:0.7859  Recall:0.6074  F1:0.6852
+After manual processed..
+TP:235	FP:49	FN:170
+Precision:0.8275  Recall:0.5802  F1:0.6821
+========================================
+steps: 4050   	loss:0.4233
+steps: 4100   	loss:0.0307
+steps: 4150   	loss:0.0145
+steps: 4200   	loss:0.1572
+steps: 4250   	loss:0.0139
+steps: 4300   	loss:0.0052
+steps: 4350   	loss:0.0291
+steps: 4400   	loss:0.0894
+steps: 4450   	loss:0.0112
+steps: 4500   	loss:0.0189
+========================================
+evaluating in dev...
+TP:245	FP:59	FN:160
+step:4500   	loss:13.4618
+Precision:0.8059  Recall:0.6049  F1:0.6911
+After manual processed..
+TP:236	FP:45	FN:169
+Precision:0.8399  Recall:0.5827  F1:0.6880
+save to path: saveVariable/JointModel/4500.ckpt
+========================================
+steps: 4550   	loss:0.0037
+steps: 4600   	loss:0.1095
+steps: 4650   	loss:0.0009
+steps: 4700   	loss:0.1635
+steps: 4750   	loss:0.0076
+steps: 4800   	loss:0.0037
+steps: 4850   	loss:0.0081
+steps: 4900   	loss:0.0426
+steps: 4950   	loss:0.0812
+steps: 5000   	loss:0.0213
+========================================
+evaluating in dev...
+TP:252	FP:77	FN:153
+step:5000   	loss:14.7825
+Precision:0.7660  Recall:0.6222  F1:0.6866
+After manual processed..
+TP:242	FP:60	FN:163
+Precision:0.8013  Recall:0.5975  F1:0.6846
+========================================
+steps: 5050   	loss:0.0010
+steps: 5100   	loss:0.0247
+steps: 5150   	loss:0.0924
+steps: 5200   	loss:0.0026
+steps: 5250   	loss:0.0137
+steps: 5300   	loss:0.0095
+steps: 5350   	loss:0.0711
+steps: 5400   	loss:0.0026
+steps: 5450   	loss:0.0068
+steps: 5500   	loss:0.0064
+========================================
+evaluating in dev...
+TP:250	FP:66	FN:155
+step:5500   	loss:16.3047
+Precision:0.7911  Recall:0.6173  F1:0.6935
+After manual processed..
+TP:240	FP:51	FN:165
+Precision:0.8247  Recall:0.5926  F1:0.6897
+save to path: saveVariable/JointModel/5500.ckpt
+========================================
+steps: 5550   	loss:0.0012
+steps: 5600   	loss:0.0041
+steps: 5650   	loss:0.0330
+steps: 5700   	loss:0.0038
+steps: 5750   	loss:0.0018
+steps: 5800   	loss:0.0001
+steps: 5850   	loss:0.0020
+steps: 5900   	loss:0.0045
+steps: 5950   	loss:0.0032
+steps: 6000   	loss:0.0100
+========================================
+evaluating in dev...
+TP:251	FP:79	FN:154
+step:6000   	loss:16.8114
+Precision:0.7606  Recall:0.6198  F1:0.6830
+After manual processed..
+TP:241	FP:57	FN:164
+Precision:0.8087  Recall:0.5951  F1:0.6856
+========================================
+steps: 6050   	loss:0.0018
+steps: 6100   	loss:0.0042
+steps: 6150   	loss:0.0013
+steps: 6200   	loss:0.0004
+steps: 6250   	loss:0.0025
+steps: 6300   	loss:0.0008
+steps: 6350   	loss:0.0017
+steps: 6400   	loss:0.0030
+steps: 6450   	loss:0.0093
+steps: 6500   	loss:0.0025
+========================================
+evaluating in dev...
+TP:249	FP:66	FN:156
+step:6500   	loss:18.4249
+Precision:0.7905  Recall:0.6148  F1:0.6917
+After manual processed..
+TP:239	FP:49	FN:166
+Precision:0.8299  Recall:0.5901  F1:0.6898
+save to path: saveVariable/JointModel/6500.ckpt
+========================================
+steps: 6550   	loss:0.0009
+steps: 6600   	loss:0.0009
+steps: 6650   	loss:0.0003
+steps: 6700   	loss:0.0023
+steps: 6750   	loss:0.0003
