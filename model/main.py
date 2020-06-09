@@ -175,11 +175,12 @@ def nn_train(
                 return step_loss
 
             epoch_counter = 0
-            first_flag = True
+            first_flag  = True
             min_loss, max_F1 = float("inf"), 0
+            best_res_keep = 0
             while True:
                 epoch_counter += 1
-
+                stop_flag = False
                 train_batch = batch_iter(
                     train_features, train_labels, batch_size=model_config.batch_size
                 )
@@ -288,6 +289,7 @@ def nn_train(
                             "Precision:%2.4f  Recall:%2.4f  F1:%2.4f"
                             % (precision, recall, F1)
                         )
+                                                
 
                         if loss_ < min_loss or F1 > max_F1:  # 保存模型
                             min_loss = min(loss_, min_loss)
@@ -315,7 +317,19 @@ def nn_train(
                                 % (current_step, loss_, precision, recall, F1)
                             )
                             fw.close()
+                            stop_flag = False
+                        else:
+                            stop_flag = True
+
                         print("=" * 40)
+
+                if stop_flag:
+                    best_res_keep += 1
+                if best_res_keep > 5:
+                    print('*' * 40)
+                    print('run complete!')
+                    print('*' * 40)
+                    break
 
 
 def nn_test(model_config, test_data, ner_cate2id_dict, classifier_cate2id_dict):
